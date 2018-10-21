@@ -1,0 +1,7 @@
+<h1>Просмотр списка вопросов теста</h1>
+<div>
+  <h1>Заголовок: <%= @test.title %><br>Уровень: <%= @test.level %></h1>
+  <ol><% @test.questions.each do |question| %>
+  <li><%= question.body %></li>
+  </ol>
+</div>
