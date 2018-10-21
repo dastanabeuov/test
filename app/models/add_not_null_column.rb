@@ -1,0 +1,2 @@
+class AddNotNullColumn < ApplicationRecord
+end
