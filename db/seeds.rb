@@ -12,7 +12,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create!(
+User.create!(
   [
     { name: 'Dastan', email: 'Dastan@example.org' },
     { name: 'Darkan', email: 'Darkhan@example.org' }
@@ -29,10 +29,10 @@ categories = Category.create!(
 
 tests = Test.create!(
   [
-    { title: 'Ruby', level: 3, category_id: categories[1].id },
-    { title: 'Ruby on Rails', level: 2, category_id: categories[1].id },
-    { title: 'HTML5', level: 2, category_id: categories[0].id },
-    { title: 'OS+nginx+passenger+sql+RoR+redis', level: 3, category_id: categories[2].id }
+    { title: 'Ruby', level: 1, category_id: categories[1].id, user_id: User.first.id },
+    { title: 'RoR', level: 2, category_id: categories[1].id, user_id: User.first.id },
+    { title: 'HTML5', level: 3, category_id: categories[0].id, user_id: User.first.id },
+    { title: 'OS+nginx+passenger+sql+RoR+redis', level: 4, category_id: categories[2].id, user_id: User.first.id }
   ]
 
 )
