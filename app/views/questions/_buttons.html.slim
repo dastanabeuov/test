@@ -1,0 +1,5 @@
+= link_to 'Показать', question_path(@question) if action_name == 'edit'
+
+= link_to 'Редактировать', edit_question_path(@question) if action_name == 'show'
+
+= link_to 'Список вопросов', question_path(@question) if action_name == 'show'

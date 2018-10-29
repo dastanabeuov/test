@@ -1,0 +1,10 @@
+= form_with model: [@test, @question], local: true do |f|
+  = hidden_field_tag 'question[test_id]', params[:test_id] || @question.test.id
+
+  = render 'shared/errors', resource: @question
+
+  p 
+    = f.label :body
+    = f.text_field :body
+  p 
+    = f.submit
