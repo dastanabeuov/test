@@ -1,7 +1,8 @@
 class TestsController < ApplicationController
-  before_action :set_test
 
-  def show; end
+  def show
+  	set_test
+  end
 
   private
 
