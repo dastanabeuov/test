@@ -1,7 +1,12 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show]
 
-  def show; end
+  def index
+  	@tests = Test.all
+  end
+
+  def show
+  	set_test
+  end
 
   private
 
