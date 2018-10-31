@@ -6,14 +6,14 @@ h1 = @test.title
 table
   thead
     tr
-      th Question title
-      th colspan='3' Actions
+      th Заголовок вопроса
+      th colspan='3' Методы
     - @test.questions.each do |question|
       tr
         td = question.body
         td = link_to 'Редактировать', edit_question_path(question)
         td = link_to 'Показать', question_path(question)
-        td = link_to 'Удалить', 
-                      question_path(question), 
+        td = link_to 'Удалить',
+                      question_path(question),
                       method: 'delete',
                       data: { confirm: 'Вы уверены что хотите удалить?' }

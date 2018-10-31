@@ -1,7 +1,0 @@
-h1 Список тестов
-
-ol
-  - @tests.each do |test|
-    li
-      = link_to test_questions_path(test) do
-        | #{ test.title } - #{ test.questions.count } вопросов
