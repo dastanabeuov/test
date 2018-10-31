@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
-
-  before_action :set_test, only: [:show]
+  before_action :set_test
 
   def show; end
 
