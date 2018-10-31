@@ -1,5 +1,7 @@
-h1 
-  = question_header(@question, @test.title)
+- if @question.persisted?
+    h1 Изменить вопрос для теста #{ @test.title }
+- else
+    h1 Создать новый вопрос для теста #{ @test.title }
 
 = render 'form'
 
