@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: [:index, :new, :create]
-  before_action :set_question, only: [:show, :delete, :edit]
+  before_action :set_question, only: [:show, :delete]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -10,9 +10,7 @@ class QuestionsController < ApplicationController
 
   def edit; end
 
-  def new; 
-    @question = Question.new
-  end
+  def new; end
 
   def create
     @question = @test.questions.new(question_params)
