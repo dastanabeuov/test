@@ -1,9 +1,0 @@
-h1 Вопрос: #{ @question.body }
-
-p Список ответов:
-
-ol
-  - @question.answers.each do |answer|
-    li #{ answer.body } - #{ answer.correct }
-
-= render 'buttons'
