@@ -1,0 +1,7 @@
+h1 List of Test
+
+ul 
+  - @tests.each do |test|
+    li
+      = link_to test_questions_path(test) do
+        | #{ test.title } - #{ test.questions.count } questions

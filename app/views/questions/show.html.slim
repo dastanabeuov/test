@@ -1,0 +1,9 @@
+h1 Question: #{ @question.body }
+
+p Answers list:
+
+ul
+  - @question.answers.each do |answer|
+    li #{ answer.body } - #{ answer.correct }
+
+= render 'buttons'

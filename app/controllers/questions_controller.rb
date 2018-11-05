@@ -1,26 +1,44 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: [:index, :new, :create]
-  before_action :set_question, only: [:show, :delete]
+  before_action :set_question, only: [:show, :delete, :edit]
 
   rescue_from ActiveRecord::RecordNotFound, 
               with: :rescue_with_question_not_found
 
   def index; end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
+
+  def edit; end
 
   def show; end
 
   def create
-    @test.questions.create question_params
+    @question = @test.questions.new(question_params)
 
-    redirect_to test_questions_path(@test)
+    if @question.save
+      redirect_to test_path(@test)
+    else 
+      render :new
+    end
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update question_params
+      redirect_to test_path(@question.test)
+    else 
+      render :edit
+    end
   end
 
   def destroy
     @question.destroy
 
-    redirect_to test_questions_path(@test)
+    redirect_to test_path(@test)
   end
 
   private 
@@ -38,6 +56,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Вопрос не найден'
+    render plain: 'Not Found question'
   end
 end
