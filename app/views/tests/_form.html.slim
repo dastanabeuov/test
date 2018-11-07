@@ -1,0 +1,17 @@
+= form_with model: [@test], local: true do |f|
+  = render 'shared/errors', resource: @test 
+
+  p
+  	= f.label :title
+	= f.text_field :title
+
+	= f.label :level
+	= f.number_field :level
+
+	= f.label :category_id
+	= f.collection_select :category_id, Category.all, :id, :title, prompt: true
+
+	= f.label :user_id 
+	= f.collection_select :user_id, User.all, :id, :name, prompt: true
+  p
+	= f.submit

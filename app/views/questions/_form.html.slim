@@ -1,7 +1,8 @@
+h1 = question_form_title(@question, @test.title)
+
 = form_with model: [@test, @question], local: true do |f|
   = hidden_field_tag 'question[test_id]', params[:test_id] || @question.test.id
 
-  = @question.errors.full_messages
   = render 'shared/errors', resource: @question
 
   p 

@@ -5,3 +5,5 @@ ul
     li
       = link_to test_questions_path(test) do
         | #{ test.title } - #{ test.questions.count } questions
+
+p = link_to 'Create New Test', new_test_path
