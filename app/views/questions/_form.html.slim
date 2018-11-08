@@ -1,4 +1,4 @@
-h1 = question_form_title(@question, @question.test.title)
+h1 = question_form_title(@question)
 
 = form_with model: [@test, @question], local: true do |f|
   = render 'shared/errors', resource: @question

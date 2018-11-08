@@ -2,19 +2,12 @@ h1 = @test.title
 
 = link_to 'Add new question', new_test_question_path(@test)
 
-hr
-
 table
-  thead
+  tr
     tr
-      th Question title
-      th colspan='3' Actions
-    - @questions.each do |question|
-      tr
-        td = question.body
-        td = link_to 'Edit', edit_question_path(question)
-        td = link_to 'Show', question_path(question)
-        td = link_to 'Delete', 
-                      question_path(question), 
-                      method: 'delete',
-                      data: { confirm: 'Are you sure?' }
+    th Body
+    th colspan="3" Actions  
+
+= render partial: "question", collection: @questions
+
+p = link_to 'Back', tests_path
