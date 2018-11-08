@@ -1,12 +1,13 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
-  before_action :set_test_questions, only: [:show]
 
   def index
     @tests = Test.all
   end
 
-  def show; end
+  def show
+    @questions = @test.questions
+  end
 
   def new
     @test = Test.new
@@ -46,9 +47,5 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_test_questions
-    @questions = @test.questions
   end
 end

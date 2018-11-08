@@ -6,4 +6,6 @@ ul
   - @question.answers.each do |answer|
     li #{ answer.body } - #{ answer.correct }
 
-= render 'buttons'
+= link_to 'Edit ', edit_question_path(@question)
+
+= link_to 'Questions List ', edit_question_path(@question)

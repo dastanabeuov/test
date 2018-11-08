@@ -9,7 +9,7 @@ table
     tr
       th Question title
       th colspan='3' Actions
-    - @test.questions.each do |question|
+    - @questions.each do |question|
       tr
         td = question.body
         td = link_to 'Edit', edit_question_path(question)
