@@ -1,9 +1,13 @@
-h1 List of Test
-
-ul 
-  - @tests.each do |test|
-    li
-      = link_to test_questions_path(test) do
-        | #{ test.title } - #{ test.questions.count } questions
+h1 All tests
 
 p = link_to 'Create New Test', new_test_path
+
+table
+  tr
+    th>Title
+    th>Level
+    th>Questions quantity
+    th colspan="4" Actions
+  tr
+  = render @tests  
+table

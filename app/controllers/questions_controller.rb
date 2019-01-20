@@ -1,19 +1,17 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: [:new, :create]
-  before_action :set_question, only: [:show, :destroy, :edit, :update]
+  before_action :set_test, only: %i[new create]
+  before_action :set_question, only: %i[show destroy edit update]
 
-  rescue_from ActiveRecord::RecordNotFound, 
-              with: :rescue_with_question_not_found
-
-
-  def new
-    @question = Question.new
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def edit; end
 
   def show; end
 
+  def new
+    @question = Question.new
+  end
+  
   def create
     @question = @test.questions.new(question_params)
 

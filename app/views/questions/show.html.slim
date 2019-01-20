@@ -1,11 +1,19 @@
-h1 Question: #{ @question.body }
+h1 = @question.test.title
 
-p Answers list:
+= @question.body
 
-ul
-  - @question.answers.each do |answer|
-    li #{ answer.body } - #{ answer.correct }
+h2 Answers
 
-= link_to 'Edit ', edit_question_path(@question)
+= link_to 'New Answer', new_question_answer_path(@question)
 
-= link_to 'Questions List ', edit_question_path(@question)
+table
+  tr
+    tr
+    th>Body
+    th colspan="3" Actions  
+  tr
+  = render @question.answers
+table
+
+
+p = link_to 'Back', test_path(@question.test)
