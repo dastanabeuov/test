@@ -1,15 +1,14 @@
 class TestPassage < ApplicationRecord
   
+  PASS_TEST_THRESHOLD = 85
+  
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question
-  before_validation :before_validation_set_first_question, on: :create
   
-  scope :last_test_entry, ->(test) { where(test_id: test).last }
-
-  PASS_TEST_THRESHOLD = 85
+  scope :last_test_entry, ->(test) { where(test_id: test.id).last }
 
   def completed?
     current_question.nil?
@@ -38,8 +37,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_next_question
-    return self.current_question = test.questions.first if test.present? && current_question.nil?
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = next_question
   end
 
   def before_validation_set_first_question
@@ -57,6 +55,7 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
+    return test.questions.first if current_question.nil?
   	test.questions.order(:id).where('id > ?', current_question.id).first
   end
 

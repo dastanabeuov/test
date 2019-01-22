@@ -9,8 +9,7 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
 
   def info_passing_test(level)
-    Test.joins(:test_passages)
-    .where(["test_passages.user_id = ? AND tests.level = ?", self.id, level])
+    tests.where(level: level)
   end
 
   def test_passage(test)
