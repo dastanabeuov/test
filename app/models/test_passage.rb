@@ -28,23 +28,26 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    test.questions.index(current_question) + 1
+    test.questions.where('id < ?', current_question.id).count + 1
   end
 
   private
 
   def before_validation_set_next_question
-    return self.current_question = test.questions.first if test.present? && current_question.nil?
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = next_question
   end
 
   def correct_answer?(answer_ids)
-  	return false unless answer_ids
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
     current_question.answers.correct
   end
+
+  def next_question
+    return self.current_question = test.questions.first if test.present? && current_question.nil?
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+  end    
 
 end
