@@ -1,12 +1,15 @@
 class User < ApplicationRecord
   
+  before_save { self.email = email.downcase }
+
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  #has_many :results
-  #has_many :tests, through: :results
-
-  validates :name, :email, presence: true
+  validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  uniqueness: { case_sensitive: false }
+  has_secure_password  
 
   def info_passing_test(level)
     tests.where(level: level)

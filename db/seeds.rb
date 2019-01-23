@@ -14,8 +14,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(
   [
-    { name: 'Dastan', email: 'Dastan@example.org' },
-    { name: 'Darkan', email: 'Darkhan@example.org' }
+    { name: 'Dastan', email: 'Dastan@example.org', password: 'Testguru', password_confirmation: 'Testguru' },
+    { name: 'Darkan', email: 'Darkhan@example.org', password: 'Testguru', password_confirmation: 'Testguru' }
   ]
 )
 
