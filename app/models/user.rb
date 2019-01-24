@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :name, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /.+@.+\..+/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
   uniqueness: { case_sensitive: false }
   has_secure_password  

@@ -1,13 +1,12 @@
 class SessionsController < ApplicationController
-  
-  before_action :find_user, on: %i[create update]
 
   def new; end
 
   def create
+    @user = User.find_by(email: params[:email])
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to session[:request_page].to_s
+      redirect_to request_page || root_path
     else
       redirect_to root_path
     end
@@ -20,8 +19,9 @@ class SessionsController < ApplicationController
 
   private
 
-  def find_user
-    @user = User.find_by(email: params[:email])
+  def request_page
+    return cookies[:current_path] if cookies[:current_path]
+    root_path
   end
 
 end
