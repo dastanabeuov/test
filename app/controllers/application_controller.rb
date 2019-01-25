@@ -1,23 +1,11 @@
 class ApplicationController < ActionController::Base
   
-  protect_from_forgery with: :exception
+  before_action :authenticate_user!
 
-  helper_method :current_user, :logged_in?
+  def after_sign_in_path_for(_user)
+    return admin_tests_path if current_user.is_a?(Admin)
 
-  private
-
-  def authenticate_user!
-    return if current_user
-    cookies[:current_path] = request.original_url
-    redirect_to login_path unless current_user
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
+    tests_path
+  end  
 
 end

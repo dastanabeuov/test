@@ -1,0 +1,13 @@
+h1 All tests
+
+p = link_to 'Create New Test', new_admin_test_path
+
+table
+  tr
+    th>Title
+    th>Level
+    th>Questions quantity
+    th colspan="3" Actions
+  tr
+  = render @tests  
+table

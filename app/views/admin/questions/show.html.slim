@@ -1,0 +1,19 @@
+h1 = @question.test.title
+
+= @question.body
+
+h2 Answers
+
+= link_to 'New Answer', new_admin_question_answer_path(@question)
+
+table
+  tr
+    tr
+    th>Body
+    th colspan="3" Actions  
+  tr
+  = render @question.answers
+table
+
+
+p = link_to 'Back', admin_test_path(@question.test)
