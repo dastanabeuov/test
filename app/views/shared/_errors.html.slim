@@ -1,0 +1,6 @@
+- if resource.errors.present?
+  strong #{ pluralize(resource.errors.count, 'error')} detected:
+
+  ul 
+    - resource.errors.full_messages.each do |error|
+      li = error
