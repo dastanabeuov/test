@@ -1,10 +1,10 @@
 tr
   th = answer.body
-  th = link_to 'Show', admin_answer_path(answer)
-  th = link_to 'Edit', edit_admin_answer_path(answer)
-  th = link_to 'Destroy',
+  th = link_to t('common.show'), admin_answer_path(answer)
+  th = link_to t('common.edit'), edit_admin_answer_path(answer)
+  th = link_to t('.destroy'),
                   admin_answer_path(answer),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }
+                  data: { confirm: t('data.messages.delete_confirmation') }
   th
 tr

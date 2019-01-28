@@ -1,11 +1,11 @@
-h1 All tests
+h1 = t('.header')
 
 table
   tr
-    th Title
-    th Level
-    th Questions quantity
-    th Actions
+    th = t('.title')
+    th = t('.level')
+    th = t('.questions_quantity')
+    th = t('.actions')
   tr
   = render @tests  
 table
