@@ -11,8 +11,5 @@
 	= f.label :category_id
 	= f.collection_select :category_id, Category.all, :id, :title, prompt: true
 
-  = f.label :user_id
-  = f.collection_select :user_id, User.all, :id, :type, prompt: true	
-
   p
 	= f.submit

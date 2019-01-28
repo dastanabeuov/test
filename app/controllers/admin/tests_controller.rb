@@ -1,7 +1,7 @@
 class Admin::TestsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -18,7 +18,7 @@ class Admin::TestsController < ApplicationController
   def edit; end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.author_tests.new(test_params)
 
     if @test.save
       redirect_to admin_test_path(@test)
@@ -41,15 +41,10 @@ class Admin::TestsController < ApplicationController
     redirect_to tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def set_test
