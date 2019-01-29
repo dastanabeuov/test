@@ -3,5 +3,5 @@
     h2 = t('.header', count: resource.errors.count)
 
       - resource.errors.full_messages.each do |message|
-        = content_tag :div, class: "alert alert-danger" do
-          = content_tag(:p, message)
+        div class: "alert alert-danger" do
+         p = message
