@@ -1,8 +1,11 @@
 .nav {
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 5px;
   a:hover {
-    color: white;
+    color: black;
     text-decoration: underline;
-    background-color: black;
+    background-color: white;
   }
 
   .right {
