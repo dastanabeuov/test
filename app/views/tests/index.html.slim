@@ -1,11 +1,13 @@
-h1 = t('.header')
+section class="tests-pickup"
+	h1 = t('.header', class: "tests-headline")
 
-table
-  tr
-    th = t('.title')
-    th = t('.level')
-    th = t('.questions_quantity')
-    th = t('.actions')
-  tr
-  = render @tests  
-table
+	div class="tests-grid"
+		table
+		  tr
+		    th = t('.title')
+		    th = t('.level')
+		    th = t('.questions_quantity')
+		    th = t('.actions')
+		  tr
+		  = render @tests  
+		table

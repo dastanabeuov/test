@@ -1,3 +1,52 @@
-// Place all the styles related to the tests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.tests-pickup .tests-headline {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tests-grid {
+  display: flex;
+  flex-wrap: wrap;  
+  padding-left: 100px;
+  margin-bottom: 150px;
+}
+
+.tests-grid .test-picker {
+  margin: 5px;
+  min-width: 150px;
+  min-height: 50px;
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+  border: 10px solid #39235c;
+}
+
+.tests-grid .test-picker .test-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.tests-grid .test-picker .test-level,
+.tests-grid .test-picker .test-questions-qty {
+  text-align: left;
+}
+
+.tests-grid .test-picker:hover {
+  border-color: #76b200;
+  cursor: pointer;
+}
+
+.tests-grid .test-picker:active {
+  border-color: rgba(118, 178, 0, 0.5);
+  cursor: pointer;
+}
+
+// Admin tests
+
+.all-tests .btn {
+  margin-left: 0;
+}
+
+.tests-table li:first-child {
+  min-width: 200px;
+}
