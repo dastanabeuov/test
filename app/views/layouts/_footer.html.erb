@@ -1,7 +1,12 @@
-<footer>
-  <%= current_year %>
-    <%= link_to 'Dastan Abeuov', 'https://github.com/dastanabeuov', target: :blank  %>
-    <%= link_to 'Test-Guru', github_url('dastanabeuov', 'TestGuru'), target: :blank %>
-    <%= t('.credits') %> <%= link_to 'Thinknetica', 'https://thinknetica.com', 
-    target: :blank  %>
+<footer class="page-footer">
+  <div class="navbar fixed-bottom navbar-dark">
+    <span class="navbar-text">        
+      <%= link_to t('.about'), "http://localhost:3000/about/author" %> |
+      <%= link_to t('.author'), "http://localhost:3000/about" %>        
+    </span>
+    <span class="navbar-text">
+      &copy <%= current_year %> Dastan Abeuov <%= github_url('dastanabeuov', 'TestGuru') %> |
+      <%= t('.credits') %> <%= link_to('Thinknetica', 'https://www.thinknetica.com', target: '_blank') %>        
+    </span>
+  </div>
 </footer>
