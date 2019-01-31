@@ -1,9 +1,38 @@
 ru:
+  helper_methods:
+    application:
+      flash_message:
+        gist_created: 'Gist создан'
+    questions:
+      create_question: 'Новый вопрос'
+      edit_question: "Редактирование %{body}"
+    tests:
+      levels:
+        very_easy: 'очень просто'
+        easy: 'просто'
+        medium: 'непросто'
+        hard: 'сложно'
+        very_hard: 'очень сложно'
+        brutal: 'брутально'
+        impossible: 'невозможно'
+    answers:
+      correct: 'Правильный ответ'
+      incorrect: 'Неправильный ответ'
+        
+  services:
+    gist:
+      question_title: "Вопрос TestGuru из теста %{test_title}"
+
   data:
     messages:
       delete_confirmation: 'Вы уверены?'
 
   devise:
+    sessions:
+      new:
+        login: 'Вход Гуру'
+        remember_flag: 'Запомнить меня'
+        email_placeholder: 'Введите Email'    
     registrations:
       new:
         signup: 'Зарегистрироваться'
@@ -20,12 +49,7 @@ ru:
     logout: 'Выйти'
     login: 'Войти'
     signup: 'Зарегистрироваться'
-
-  layouts:
-    header:
-      greetings: 'Добро пожаловать, %{email} Гуру'
-    footer:
-      credits: 'Учебный проект в онлайн-школе'
+    again: 'Еще раз'    
 
   helpers:
     submit:
@@ -54,13 +78,19 @@ ru:
       prompt: 'Выберите Категорию'
 
   shared:
+    nav:
+      admin_panel: 'Панель Администратора'
+      greetings: 'Добро пожаловать, %{email} Гуру'
+    footer:
+      about: 'О проекте'
+      author: 'Свяжитесь с нами'
+      credits: 'Учебный проект в онлайн-школе'
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
-
 
   admin:
     nav:
@@ -76,11 +106,16 @@ ru:
         level: 'Сложность'
         questions_quantity: 'Вопросы'
         actions: 'Действия'
+        show_gists: "Gists'ы"        
       show:
         header: 'Тест %{title}'
-        create_new_question: 'Создать Новый Вопрос'
+        create_new_question: 'Новый Вопрос'
         questions_body: 'Вопрос'
         actions: 'Действия'
+        title: 'Название: %{title}'
+        category: 'Категория: %{category}'
+        level: 'Сложность: %{level}'
+        questions: 'Вопросы'
       edit:
         header: 'Редактировать %{title}'
       new:
@@ -91,26 +126,33 @@ ru:
         destroy: 'Удалить'
       show:
         answers: 'Ответы'
-        new_answer: 'Создать Новый Ответ'
+        new_answer: 'Новый Ответ'
+        body: 'Вопрос: %{body}'
+        answers_body: 'Ответ'
       new:
-        header: 'Создание Нового Вопроса'
-      edit:
-        header: 'Редактирование вопроса'
-      show:
-        questions_body: 'Вопрос'
-        actions: 'Действия'        
+        header: 'Новый Вопрос'      
 
     answers:
       answer:
         destroy: 'Удалить'
       show:
         header: 'Вопрос'
-        answer_body: 'Ответ'
-        answer_correct: 'Правильность'
+        body: 'Ответ: %{body}'
+        correct: 'Правильность:'
       new:
         header: 'Создание Ответа'
+        question_body: 'Вопрос: %{body}'
       edit:
         header: 'Редактирование Ответа'
+      form:
+        corret_flag: 'Корректный ответ'
+
+    gists:
+      index:
+        header: "Gist'ы"
+        question: 'Вопрос'
+        url: 'Ссылка'
+        user: 'Автор'        
 
   tests:
     test:
@@ -128,10 +170,14 @@ ru:
       total_questions: 'Количество вопросов в тесте: %{count}'
       current_question: 'Текущий вопрос: %{number}'
       next_question: 'Следующий Вопрос'
+      gist_question: 'В Gist'      
     result:
       test_completed: 'Поздравляем! Вы успешно прошли %{title} тест!'
       test_failed: 'Вы не смогли пройти %{title} тест! Попробуйте ещё раз!'
-
+    gist:
+      failure: 'Во время сохранения gist произошла ошибка'      
+      success: 'Гист успешно сохранен!'
+      
   test_mailer:
     completed_test:
       subject: "Вы завершили тест в TestGuru!"
