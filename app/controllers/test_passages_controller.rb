@@ -24,7 +24,7 @@ class TestPassagesController < ApplicationController
     if service.call_success?
       current_user.gists.create(question: @test_passage.current_question,
                                 url: git_response.html_url)
-      flash[:gist_create] = git_response.html_url
+      flash[:notice] = t('.success', link: git_response.html_url)
     else
       flash[:alert] = t('.failure')
     end

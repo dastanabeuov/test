@@ -1,8 +1,5 @@
-<% @gists.each do |gist| %>
-  <tr>
-    <th scope="row"></th>
-    <td><%= gist_link(gist) %></td>
-    <td><%= link_to "Gist", gist.gist_url %></td>
-    <td><%= gist.user.email %></td>
-  </tr>
-<% end %>
+<ul>
+  <li><%= link_to truncate(gist.question.body, length: 25), gist.url, target: '_blank' %></li>
+  <li><%= link_to gist.url.slice(24, gist.url.length), gist.url, target: '_blank' %></li>
+  <li><%= gist.user.email %></li>
+</ul>
