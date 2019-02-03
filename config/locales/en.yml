@@ -1,13 +1,43 @@
 en:
+  helper_methods:
+    application:
+      flash_message:
+        gist_created: 'Gist created'
+    questions:
+      create_question: 'New Question'
+      edit_question: "Edit %{body}"
+    tests:
+      levels:
+        very_easy: 'very easy'
+        easy: 'easy'
+        medium: 'medium'
+        hard: 'hard'
+        very_hard: 'very hard'
+        brutal: 'brutal'
+        impossible: 'impossible'
+    answers:
+      correct: 'Correct answer'
+      incorrect: 'Incorrect answer'
+  
+  services:
+    gist:
+      question_title: "TestGuru question from %{test_title} test"
+
   data:
     messages:
       delete_confirmation: 'Are you sure?'
 
   devise:
+    sessions:
+      new:
+        login: 'The Guru Gate'
+        remember_flag: 'Remember me'
+        email_placeholder: 'Enter Email'
     registrations:
       new:
-        signup: 'Sign Up'
+        signup: 'Guru Registration'
         min_characters_requirment: '%{length} characters minimum'
+        email_placeholder: 'Enter Email'
     shared:
       links:
         forgot_password: 'Forgot your password?'
@@ -71,6 +101,7 @@ en:
         level: 'Level'
         questions_quantity: 'Questions'
         actions: 'Actions'
+        show_gists: 'Gists'        
       show:
         header: 'Test %{title}'
         create_new_question: 'Create New Question'
@@ -101,6 +132,15 @@ en:
         header: 'New Answer'
       edit:
         header: 'Editing Answer'
+      form:
+        corret_flag: 'Correct'        
+
+    gists:
+      index:
+        header: 'Gists'
+        question: 'Question'
+        url: 'URL'
+        user: 'author'        
 
   tests:
     test:
@@ -118,9 +158,13 @@ en:
       total_questions: 'Total Questions: %{count}'
       current_question: 'Current Question: %{number}'
       next_question: 'Next Question'
+      gist_question: 'Gist Question'      
     result:
       test_completed: 'Cogratulations! You have completed %{title} test!'
       test_failed: 'You have failed %{title} test! Try again!'
+    gist:
+      failure: 'An error occured while saving gist'
+      success: 'Gist was created success!'     
 
   test_mailer:
     completed_test:

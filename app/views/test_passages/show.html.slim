@@ -18,4 +18,8 @@ section class="test-passage"
          
 
         div class="btn-test-passage"
-          = form.submit t('.next_question'), class: "btn"
+          = form.submit t('.next_question'), class: "btn btn-sm btn-secondary"
+
+    
+        div class="btn-test-passage"
+          = link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-primary'
