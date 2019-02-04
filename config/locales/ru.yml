@@ -163,6 +163,7 @@ ru:
       level: 'Сложность'
       questions_quantity: 'Вопросы'
       actions: 'Действия'
+      sorting: 'Сортировать'      
 
   test_passages:
     show:
