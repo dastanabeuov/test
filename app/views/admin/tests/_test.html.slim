@@ -1,14 +1,13 @@
 tr class="border border-dark mt-1"
-  td = test.id
   td = test.title
   td = test.level
   td = test.questions.count
   td
     div class="btn-group" role="group" aria-label="Basic example"
-      = link_to t('common.show'), admin_test_path(test), class: 'btn btn-sm btn-info'
-      = link_to t('common.edit'), edit_admin_test_path(test), class: 'btn btn-sm btn-warning'
+      = link_to t('common.show'), admin_test_path(test), class: 'btn btn-info'
+      = link_to t('common.edit'), edit_admin_test_path(test), class: 'btn btn-warning'
       = link_to t('.delete'),
                       admin_test_path(test),
                       method: :delete,
                       data: { confirm: t('data.messages.delete_confirmation') },
-                      class: 'btn btn-sm btn-danger'
+                      class: 'btn btn-danger'

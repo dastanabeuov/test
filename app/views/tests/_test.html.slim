@@ -1,6 +1,5 @@
-tr
+tr class="border border-dark mt-1"
   td = test.title
   td = test.level
   td = test.questions.count
-  td = button_to t('.start'), start_test_path(test), class: "test-picker"
-tr
+  td = button_to t('.start'), start_test_path(test), class: "btn btn-primary"

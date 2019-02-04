@@ -151,6 +151,7 @@ en:
       level: 'Level'
       questions_quantity: 'Questions'
       actions: 'Actions'
+      sorting: 'Sorting'      
 
   test_passages:
     show:
