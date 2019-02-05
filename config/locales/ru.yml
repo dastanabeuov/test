@@ -49,7 +49,7 @@ ru:
     logout: 'Выйти'
     login: 'Войти'
     signup: 'Зарегистрироваться'
-    again: 'Еще раз'    
+    again: 'Еще раз'  
 
   helpers:
     submit:
@@ -99,6 +99,8 @@ ru:
     tests:     
       test:
         destroy: 'Удалить'
+        edit: 'Редактировать'
+        cancel: 'Отмена'
       index:
         header: 'Доступные Тесты'
         new_test: 'Создать Новый Тест'
@@ -120,6 +122,8 @@ ru:
         header: 'Редактировать %{title}'
       new:
         header: 'Создание Нового Теста'
+      form_inline:
+        submit: "OK"        
 
     questions:
       question:

@@ -4,6 +4,12 @@ section class="test-passage"
       h1 = t('.header', test_title: @test_passage.test.title )
       p = t('.current_question', number: @test_passage.current_question_number)
 
+      = content_tag :div, class: 'test-progress-bar' do
+        = content_tag :div, class: 'test-current-progress' do
+
+      = content_tag :div, class: 'test-progress-percent-counter',
+                      data: { test_passage_id: @test_passage.id } do
+        = 100 * (@test_passage.current_question_number.to_i - 1) / @test_passage.test.questions.count.to_i  
 
     div class="question-title"
       = @test_passage.current_question.body
@@ -19,7 +25,6 @@ section class="test-passage"
 
         div class="btn-test-passage"
           = form.submit t('.next_question'), class: "btn btn-sm btn-secondary"
-
-    
+        br  
         div class="btn-test-passage"
           = link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-primary'
