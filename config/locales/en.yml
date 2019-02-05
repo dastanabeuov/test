@@ -49,7 +49,7 @@ en:
     back: 'Back'
     logout: 'Log Out'
     login: 'Log In'
-    signup: 'Sign Up'
+    signup: 'Sign Up' 
 
   layouts:
     header:
@@ -94,6 +94,8 @@ en:
     tests:
       test:
         destroy: 'Destroy'
+        edit: 'Edit'
+        cancel: 'Cancel'
       index:
         header: 'All Tests'
         new_test: 'Create New Test'
@@ -111,6 +113,8 @@ en:
         header: 'Edit  %{title}'
       new:
         header: 'New Test Creation'
+      form_inline:
+        submit: "OK"        
 
     questions:
       question:

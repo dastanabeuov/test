@@ -5,3 +5,28 @@
 .hide {
 	display: none !important;
 }
+
+// Progress bar
+
+[class$="progress-bar"] {
+  background-color: #d3d3d3;
+  width: 100%;
+  height: 30px;
+  z-index: -2;
+}
+
+[class$="current-progress"] {
+  background-color: #392e5c;
+  width: 0;
+  height: 30px;
+  z-index: -1;
+}
+
+[class$="progress-percent-counter"] {
+  position: relative;
+  top: -30px;
+  z-index: 0;
+  width: 100%;
+  height: 30px;
+  color: #17141f;
+}
