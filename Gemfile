@@ -56,7 +56,7 @@ gem "octokit", "~> 4.0"
 gem 'faraday'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
   # ENV
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
