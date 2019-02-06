@@ -8,9 +8,10 @@ gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 #pg postgresql db
-gem 'pg'
-
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'pg', '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -55,6 +56,7 @@ gem "octokit", "~> 4.0"
 gem 'faraday'
 
 group :development, :test do
+  gem 'sqlite3'
   # ENV
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
