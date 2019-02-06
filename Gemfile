@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.1'
 #gem 'sqlite3'
 #pg postgresql db
 group :production do
-  gem 'pg', '0.17.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 # Use Puma as the app server
