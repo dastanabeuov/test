@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_070042) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "fedbacks", force: :cascade do |t|
+  create_table "feedbacks", force: :cascade do |t|
     t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

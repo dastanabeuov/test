@@ -1,10 +1,11 @@
 class FeedbacksMailer < ApplicationMailer
   
-  def ready_feedback(feedback, user)
-    @user = user
-    @feedback = feedback
+  default to: -> { Admin.pluck(:email) },
+          from: 'notification@testguru.com'
 
-    mail to: @user.email
+  def ready_feedback(feedback)
+    @feedback = feedback
+    mail(subject: "New User feedback: #{@feedback.text}")
   end
 
 end

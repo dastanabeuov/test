@@ -6,12 +6,12 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
-
-    Admin.all.each do |admin|
-      FeedbacksMailer.ready_feedback(@feedback, admin).deliver_now
+    if @feedback.valid?
+      FeedbacksMailer.ready_feedback(@feedback).deliver_now
+      redirect_to root_path, notice: t('.success')
+    else
+      render :new
     end
-
-    redirect_to root_path, notice: t('.success')
   end
 
   private
