@@ -19,7 +19,5 @@ module TestGuru
     # the framework and any gems in your application.
     config.i18n.default_locale = :en
     config.time_zone = 'Astana'
-
-    config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end
