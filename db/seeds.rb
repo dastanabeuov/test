@@ -12,9 +12,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!({ email: 'd.abeuov9@gmail.com', password: 'A-z123123', 
-                 password_confirmation: 'A-z123123', first_name: 'Dastan', 
-                 last_name: 'Abeuov', type: 'Admin' })
 
 categories = Category.create!(
   [
