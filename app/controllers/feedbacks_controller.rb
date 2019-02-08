@@ -5,10 +5,10 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = Feedback.new(feedback_params)
+    @feedback = Feedback.new(feedback_params) 
     if @feedback.valid?
       FeedbacksMailer.ready_feedback(@feedback).deliver_now
-      redirect_to root_path, notice: t('.success')
+      redirect_to root_url, notice: 'Email sent!'
     else
       render :new
     end
@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:text)
+    params.require(:feedback).permit(:name, :email, :message)
   end
 
 end

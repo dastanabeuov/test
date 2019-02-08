@@ -4,8 +4,10 @@ class FeedbacksMailer < ApplicationMailer
           from: 'notification@testguru.com'
 
   def ready_feedback(feedback)
-    @feedback = feedback
-    mail(subject: "New User feedback: ", @feedback.text)
+    @name = feedback.name
+    @email = feedback.email
+    @message = feedback.message
+    mail(subject: "New User feedback:")
   end
 
 end

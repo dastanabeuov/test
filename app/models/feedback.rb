@@ -1,5 +1,9 @@
-class Feedback < ApplicationRecord
-  
-  validates :text, presence: true
+class Feedback
+
+  include ActiveModel::Model
+
+  attr_accessor :email, :message, :name
+
+  validates :email, :message, :name, presence: true
 
 end
