@@ -1,7 +1,11 @@
-h2 = t('.question_body', body: @answer.question.body )
+p = t('.question_body')
+h2 = @answer.question.body
 
-h2 = t('.header')
+p = t('.header')
 
 = render 'form'
 
 p = link_to t('common.back'), admin_question_path(@answer.question)
+
+h2 Question / answer
+
