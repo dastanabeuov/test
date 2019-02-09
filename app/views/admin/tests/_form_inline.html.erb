@@ -2,5 +2,5 @@
 	url: update_inline_admin_test_path(test), 
 	local: true, class: 'form-inline hide', data: { test_id: test.id } do |f| %>
   <%= f.text_field :title, class: 'form-control mr-2', id: 'title-input' %>
-  <%= f.submit t('.submit'), class: 'btn btn-primary' %>
+  <%= f.submit t('.submit'), class: 'btn btn-sm btn-primary' %>
 <% end %>

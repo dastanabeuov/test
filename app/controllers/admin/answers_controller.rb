@@ -15,9 +15,8 @@ class Admin::AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to [:admin, @answer], notice: 'Answer was successfully created.'
+      redirect_to [:admin, @question], notice: 'Answer was successfully created.'
     else
-      flash[:notice] = "One Question may have more than 1..4 answers!"
       render :new
     end
   end

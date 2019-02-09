@@ -1,5 +1,6 @@
-h1 = t('.header')
-
-= render 'form'
-
-p = link_to t('common.back'), admin_question_path(@answer.question)
+div class="row justify-content-center"
+  div class="col col-md-4"
+    h2 class="default-header" = t('.header')
+    = render 'form'
+    div class="mt-1"
+      = link_to t('common.back'), admin_question_path(@answer.question), class: "btn btn-sm btn-outline-secondary"

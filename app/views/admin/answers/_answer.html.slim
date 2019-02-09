@@ -1,11 +1,10 @@
-tr class="border border-dark mt-1"
-  th = answer.body
-  th = link_to t('common.show'), admin_answer_path(answer), class: 'btn btn-sm btn-info'
-  th = link_to t('common.edit'), edit_admin_answer_path(answer), class: 'btn btn-sm btn-warning'
-  th = link_to t('.destroy'),
-                  admin_answer_path(answer),
-                  method: :delete,
-                  data: { confirm: t('data.messages.delete_confirmation') },
-                      class: 'btn btn-sm btn-danger'
-  th
-tr
+tbody
+	tr
+	  th = answer.body
+	  th = link_to t('common.show'), admin_answer_path(answer), class: 'btn btn-sm btn-outline-info'
+	  th = link_to t('common.edit'), edit_admin_answer_path(answer), class: 'btn btn-sm btn-outline-warning'
+	  th = link_to t('.destroy'),
+	                  admin_answer_path(answer),
+	                  method: :delete,
+	                  data: { confirm: t('data.messages.delete_confirmation') },
+	                      class: 'btn btn-sm btn-outline-danger'

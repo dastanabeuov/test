@@ -1,5 +1,6 @@
-tr class="border border-dark mt-1"
-  td = test.title
-  td = test.level
-  td = test.questions.count
-  td = button_to t('.start'), start_test_path(test), class: "btn btn-primary"
+tbody
+  tr
+    td = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
+    td = test.level
+    td = test.questions.count
+    td = button_to t('.start'), start_test_path(test), class: "btn btn-primary"

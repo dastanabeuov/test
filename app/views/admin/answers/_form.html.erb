@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <div class="form-group">
+    <%= form_with(model: [:admin, @question, @answer], local: true) do |form| %>
+        <%= render 'shared/errors', resource: @answer %>
+
+        <p>
+          <%= form.label :body %>
+          <%= form.text_area :body, id: :answer_body, class: "form-control" %>
+        </p>
+
+        <div class="form-check">
+          <%= form.label :correct, class: 'form-check-label' do %>
+            <%= form.check_box :correct, class: 'form-check-input' %>
+              <%= t('.corret_flag') %>?
+          <% end %>              
+        </div>
+
+        <div class="mt-2">
+          <p><%= form.submit class: 'btn-outline-primary btn-sm btn' %></p>
+        </div>
+      </div>  
+    <% end %>
+  </div>
+</div>

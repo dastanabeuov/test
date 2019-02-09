@@ -44,8 +44,7 @@ class Admin::TestsController < ApplicationController
 
   def destroy
     @test.destroy
-
-    redirect_to tests_path
+    redirect_to admin_tests_path, notice: "Test #{@test.title} удален."
   end
 
   private

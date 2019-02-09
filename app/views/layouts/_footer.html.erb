@@ -1,13 +1,50 @@
-<footer class="page-footer">
-  <div class="navbar fixed-bottom navbar-dark">
-    <span class="navbar-text">        
-      <%= link_to t('.about'), "#{root_url}about/author" %> |
-      <%= link_to t('.author'), "#{root_url}about" %> |
-      <%= link_to t('.contact_us'), new_feedback_path %>        
-    </span>
-    <span class="navbar-text">
-      &copy <%= current_year %> Dastan Abeuov <%= github_url('dastanabeuov', 'TestGuru') %> |
-      <%= t('.credits') %> <%= link_to('Thinknetica', 'https://www.thinknetica.com', target: '_blank') %>        
-    </span>
-  </div>
-</footer>
+<!-- Footer -->
+<footer class="page-footer font-small mt-5">
+    <!-- Footer Links -->
+    <div class="container">
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5">
+        <!-- Grid column -->
+        <div class="col-md-4">
+          <h6 class="text-uppercase font-weight-bold">
+            <%= link_to t('.about'), "/about/author" %>
+          </h6>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-4">
+          <h6 class="text-uppercase font-weight-bold">
+            <%= link_to t('.author'), "/about" %>
+          </h6>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-4">
+          <h6 class="text-uppercase font-weight-bold">
+            <%= link_to t('.contact_us'), new_feedback_path %>
+          </h6>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row-->
+      <hr class="rgba-white-light" style="margin: 0 15%;">
+      <!-- Grid row-->
+      <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+        <!-- Grid column -->
+        <div class="col-md-8 col-12 mt-5">
+          <p style="line-height: 1.7rem">
+            <%= t('.credits') %> <%= link_to('Thinknetica', 'https://www.thinknetica.com', target: '_blank') %>
+            </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row-->
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© <%= current_year %> Copyright:
+      <b>Dastan Abeuov</b> <%= github_url('dastanabeuov', 'TestGuru') %>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->

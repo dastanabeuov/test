@@ -1,0 +1,13 @@
+h1 = t('.header')
+
+table class="table-bordered table-hover"
+  thead
+    tr
+      th = t('.question')
+      th = t('.url')
+      th = t('.user')
+
+  = render @gists
+
+div class="btn-group mt-5"
+  = link_to t('common.back'), admin_tests_path, class: "btn btn-sm btn-outline-secondary"

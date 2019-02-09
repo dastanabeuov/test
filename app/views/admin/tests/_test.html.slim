@@ -1,19 +1,20 @@
-tr class="border border-dark mt-1"
-  td class="align-middle" 
-    = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
-    = render 'form_inline', test: test == @test ? @test : test
+tbody
+  tr
+    td
+      = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
+      = render 'form_inline', test: test == @test ? @test : test
 
-  td class="align-middle" = test.level
-  td class="align-middle" = test.questions.count
-  
-  td class="align-middle"
-    div class="btn-group" role="group" aria-label="Basic example"
-      = link_to t('common.show'), admin_test_path(test), class: 'btn btn-info'
+    td = test.level
+    td = test.questions.count
+    
+    td
+      div class="btn-group" role="group" aria-label="Basic example"
+        = link_to t('common.show'), admin_test_path(test), class: 'btn btn-sm btn-outline-info'
 
-      = button_to t('.edit'), edit_admin_test_path(test), 
-                    method: :get, data: { test_id: test.id },
-                    class: 'btn-warning btn form-inline-link'
-      
-      = link_to t('.delete'), admin_test_path(test),
-        method: :delete, data: { confirm: t('data.messages.delete_confirmation') },
-                                                            class: 'btn btn-danger'
+        = button_to t('.edit'), edit_admin_test_path(test), 
+                      method: :get, data: { test_id: test.id },
+                      class: 'btn btn-sm btn-outline-warning form-inline-link'
+        
+        = link_to t('.delete'), admin_test_path(test),
+          method: :delete, data: { confirm: t('data.messages.delete_confirmation') },
+                                                              class: 'btn btn-sm btn-outline-danger'

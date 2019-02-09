@@ -11,7 +11,7 @@ class GistQuestionService
   end
 
   def call
-    Result.new(@client.create_gist(gist_params.to_json))
+    @client.create_gist(gist_params.to_json)
   end
 
   private
@@ -29,22 +29,6 @@ class GistQuestionService
 
   def gist_content
     [@question.body, *@question.answers.pluck(:body)].join("\n")
-  end
-
-  class Result
-
-    def initialize(response)
-      @response = response
-    end    
-
-    def call_success?
-      !@response.html_url.nil?
-    end
-
-    def html_url
-      @response.html_url
-    end
-
   end
   
 end
