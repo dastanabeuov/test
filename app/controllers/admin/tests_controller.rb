@@ -1,6 +1,6 @@
 class Admin::TestsController < ApplicationController
-  
-  before_action :authenticate_user!
+
+  before_action :admin_required!
   before_action :set_tests, only: %i[index update_inline]
   before_action :set_test, only: %i[show edit update destroy update_inline]
 
@@ -59,6 +59,10 @@ class Admin::TestsController < ApplicationController
 
   def set_tests
     @tests = Test.all
-  end  
+  end
+
+  def admin_required!
+    redirect_to root_path unless current_user.is_a?(Admin)
+  end    
 
 end
