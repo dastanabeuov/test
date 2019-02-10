@@ -101,6 +101,7 @@ ru:
         destroy: 'Удалить'
         edit: 'Редактировать'
         cancel: 'Отмена'
+        start: 'Старт'
       index:
         header: 'Доступные Тесты'
         new_test: 'Создать Новый Тест'
@@ -167,7 +168,8 @@ ru:
       level: 'Сложность'
       questions_quantity: 'Вопросы'
       actions: 'Действия'
-      sorting: 'Сортировать'      
+      sorting: 'Сортировать'  
+      back_admin_panel: 'Назат в админ панель'    
 
   test_passages:
     show:
@@ -181,7 +183,7 @@ ru:
       test_failed: 'Вы не смогли пройти %{title} тест! Попробуйте ещё раз!'
     gist:
       failure: 'Во время сохранения gist произошла ошибка'      
-      success: 'Гист успешно сохранен!'
+      success: 'Гист успешно сохранен! %{link}'
       
   test_mailer:
     completed_test:

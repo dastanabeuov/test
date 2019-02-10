@@ -16,7 +16,7 @@
 }
 
 [class$="current-progress"] {
-  background-color: #392e5c;
+  background-color: #00B251;
   width: 0;
   height: 30px;
   z-index: -1;
@@ -24,7 +24,8 @@
 
 [class$="progress-percent-counter"] {
   position: relative;
-  top: -30px;
+  top: -25px;
+  margin-left: 5px;
   z-index: 0;
   width: 100%;
   height: 30px;

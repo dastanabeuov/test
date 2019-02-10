@@ -13,13 +13,12 @@ module ApplicationHelper
   end
 
   def flash_message(type, message)
-    content_tag :div, class: "alert #{FLASH_TYPES[type.to_sym]}" do
-      content_tag(:p, message, class: "flash #{type}") if flash[type.to_sym]
-    end
+    content_tag(:p, message, class: "alert #{FLASH_TYPES[type.to_sym]}")
   end
 
   FLASH_TYPES = {
-    notice: 'alert-success',
+    success: 'alert-success',
+    notice: 'alert-warning',
     alert: 'alert-danger'
   }.freeze  
 

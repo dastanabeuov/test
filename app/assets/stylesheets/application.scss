@@ -1,11 +1,39 @@
 @import 'bootstrap';
-@import 'global';
 @import 'typography/icons';
 
-@import 'tests';
-@import 'test_passages';
-@import 'questions';
-@import 'answers';
-@import 'layouts';
-@import 'user';
-@import 'shared';
+@import 'flash';
+@import 'global';
+
+/*---All site size typography---*/
+html {
+  font-size: 0.6rem;
+}
+
+@include media-breakpoint-up(xs) {
+  html {
+    font-size: 0.7rem;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 0.8rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1rem;
+  }
+}
+
+/*---Footer---*/
+.page-footer {
+	background-color: #ECECEC;
+}

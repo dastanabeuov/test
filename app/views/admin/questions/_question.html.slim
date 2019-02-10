@@ -1,12 +1,12 @@
-tr class="border border-dark mt-1"
-  td = question.id
-  td = question.body
-  td
-    div class="btn-group" role="group" aria-label="Basic example"
-      = link_to t('common.show'), admin_question_path(question), class: 'btn btn-sm btn-info'
-      = link_to t('common.edit'), edit_admin_question_path(question), class: 'btn btn-sm btn-warning'
-      = link_to t('.delete'),
-                      admin_question_path(question),
-                      method: :delete,
-                      data: { confirm: t('data.messages.delete_confirmation') },
-                      class: 'btn btn-sm btn-danger'
+tbody
+  tr
+    td = question.body
+    td
+      div class="btn-group" role="group" aria-label="Basic example"
+        = link_to t('common.show'), admin_question_path(question), class: 'btn btn-sm btn-outline-info'
+        = link_to t('common.edit'), edit_admin_question_path(question), class: 'btn btn-sm btn-outline-warning'
+        = link_to t('.delete'),
+                        admin_question_path(question),
+                        method: :delete,
+                        data: { confirm: t('data.messages.delete_confirmation') },
+                        class: 'btn btn-sm btn-outline-danger'

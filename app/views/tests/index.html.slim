@@ -1,16 +1,22 @@
 h1 = t('.header')
 
-table class="table"
-  tr
-    th class="sort-by-title pointer" 
-    	= t('.title')
-    	= octicon 'arrow-up', class: 'text-success hide'
-    	= octicon 'arrow-down', class: 'text-success hide'
+= render 'shared/errors', resource: @test
 
-    th = t('.level')
-    
-    th = t('.questions_quantity')
-    
-    th colspan="3" = t('.actions')
+= link_to t('.back_admin_panel'), admin_tests_path, class: "btn btn-sm btn-outline-primary mb-4 mt-2" if current_user.is_a?(Admin)
 
-  = render @tests
+div class="table-responsive"
+	table class="table table-bordered table-hover"
+	  thead class="thead-light"
+		  tr
+		    th class="sort-by-title pointer" 
+		    	= t('.title')
+		    	= octicon 'arrow-up', class: 'text-success hide'
+		    	= octicon 'arrow-down', class: 'text-success hide'
+
+		    th = t('.level')
+		    
+		    th = t('.questions_quantity')
+		    
+		    th colspan="3" = t('.actions')
+
+	  		= render @tests

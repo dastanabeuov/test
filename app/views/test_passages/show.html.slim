@@ -1,19 +1,18 @@
-section class="test-passage"
-  div class="test-passage-grid"
-    div class="test-title"
-      h1 = t('.header', test_title: @test_passage.test.title )
-      p = t('.current_question', number: @test_passage.current_question_number)
+div class="jumbotron"
+  h1 = t('.header', test_title: @test_passage.test.title )
+  p = t('.current_question', number: @test_passage.current_question_number)
 
-      = content_tag :div, class: 'test-progress-bar' do
-        = content_tag :div, class: 'test-current-progress' do
+  = content_tag :div, class: 'test-progress-bar' do
+    = content_tag :div, class: 'test-current-progress' do
 
-      = content_tag :div, class: 'test-progress-percent-counter',
-                      data: { test_passage_id: @test_passage.id } do
-        = 100 * (@test_passage.current_question_number.to_i - 1) / @test_passage.test.questions.count.to_i  
+  = content_tag :div, class: 'test-progress-percent-counter',
+                  data: { test_passage_id: @test_passage.id } do
+    = 100 * (@test_passage.current_question_number.to_i - 1) / @test_passage.test.questions.count.to_i  
 
-    div class="question-title"
-      = @test_passage.current_question.body
-
+  div class="question-title"
+    = @test_passage.current_question.body
+    br
+    br
     = form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|
       div class="form-group"
         = form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
@@ -21,10 +20,9 @@ section class="test-passage"
           p
             = b.check_box id: "answer_ids_#{b.object.id}"
             = b.label
-         
 
         div class="btn-test-passage"
-          = form.submit t('.next_question'), class: "btn btn-sm btn-secondary"
-        br  
+          = form.submit t('.next_question'), class: "btn btn-sm btn-primary"
+        br
         div class="btn-test-passage"
-          = link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-primary'
+          = link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-sm btn-outline-primary'

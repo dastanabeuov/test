@@ -1,11 +1,14 @@
-h1 = t('.header')
+table class="table-bordered table-hover"
+  thead
+    tr
+      th = t('.header')
+      th = t('.answer_body')
+      th = t('.answer_correct')
+  tbody
+    tr
+      td = @answer.question.body
+      td = @answer.body
+      td = @answer.correct
 
-p = @answer.question.body
-
-p = t('.answer_body')
-p = @answer.body
-
-p = t('.answer_correct')
-p = @answer.correct
-
-= link_to t('common.back'), admin_question_path(@answer.question)
+div class="btn-group mt-5"
+  p = link_to t('common.back'), admin_question_path(@answer.question), class: "btn btn-sm btn-outline-secondary"

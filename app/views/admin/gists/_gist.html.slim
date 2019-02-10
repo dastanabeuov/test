@@ -1,0 +1,6 @@
+tbody
+  - @gists.each do |gist|
+  tr
+    td = gist_link(gist)
+    td = link_to "Gist", gist.gist_url
+    td = gist.user.email

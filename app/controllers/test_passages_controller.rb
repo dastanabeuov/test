@@ -21,10 +21,11 @@ class TestPassagesController < ApplicationController
     service = GistQuestionService.new(@test_passage.current_question)
     git_response = service.call
 
-    if service.call_success?
-      current_user.gists.create(question: @test_passage.current_question,
-                                url: git_response.html_url)
-      flash[:notice] = t('.success', link: git_response.html_url)
+    if service
+      Gist.create!(question: @test_passage.current_question,
+                                user: current_user,      
+                                gist_url: url(git_response))
+      flash[:notice] = t('.success', link: url(git_response))
     else
       flash[:alert] = t('.failure')
     end
@@ -33,6 +34,10 @@ class TestPassagesController < ApplicationController
   end
   
   private
+
+  def url(path)
+    path.html_url
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
