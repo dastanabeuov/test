@@ -96,6 +96,7 @@ en:
         destroy: 'Destroy'
         edit: 'Edit'
         cancel: 'Cancel'
+        start: 'Start'
       index:
         header: 'All Tests'
         new_test: 'Create New Test'
@@ -155,7 +156,8 @@ en:
       level: 'Level'
       questions_quantity: 'Questions'
       actions: 'Actions'
-      sorting: 'Sorting'      
+      sorting: 'Sorting'
+      back_admin_panel: 'Back admin panel'      
 
   test_passages:
     show:

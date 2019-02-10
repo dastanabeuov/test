@@ -101,6 +101,7 @@ ru:
         destroy: 'Удалить'
         edit: 'Редактировать'
         cancel: 'Отмена'
+        start: 'Старт'
       index:
         header: 'Доступные Тесты'
         new_test: 'Создать Новый Тест'
@@ -167,7 +168,8 @@ ru:
       level: 'Сложность'
       questions_quantity: 'Вопросы'
       actions: 'Действия'
-      sorting: 'Сортировать'      
+      sorting: 'Сортировать'  
+      back_admin_panel: 'Назат в админ панель'    
 
   test_passages:
     show:

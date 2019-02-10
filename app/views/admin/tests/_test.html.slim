@@ -18,3 +18,4 @@ tbody
         = link_to t('.delete'), admin_test_path(test),
           method: :delete, data: { confirm: t('data.messages.delete_confirmation') },
                                                               class: 'btn btn-sm btn-outline-danger'
+        = button_to t('.start'), start_test_path(test), class: "btn btn-sm btn-outline-primary ml-3"

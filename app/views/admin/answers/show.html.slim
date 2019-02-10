@@ -4,12 +4,11 @@ table class="table-bordered table-hover"
       th = t('.header')
       th = t('.answer_body')
       th = t('.answer_correct')
-      th colspan="4" = t('.actions')
   tbody
     tr
       td = @answer.question.body
       td = @answer.body
       td = @answer.correct
-      td
-			  div class="btn-group"
-				= link_to t('common.back'), admin_question_path(@answer.question), class: "btn btn-sm btn-outline-secondary"
+
+div class="btn-group mt-5"
+  p = link_to t('common.back'), admin_question_path(@answer.question), class: "btn btn-sm btn-outline-secondary"
