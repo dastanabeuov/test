@@ -1,10 +1,13 @@
 tbody
 	tr
 	  th = answer.body
-	  th = link_to t('common.show'), admin_answer_path(answer), class: 'btn btn-sm btn-outline-info'
-	  th = link_to t('common.edit'), edit_admin_answer_path(answer), class: 'btn btn-sm btn-outline-warning'
-	  th = link_to t('.destroy'),
-	                  admin_answer_path(answer),
-	                  method: :delete,
-	                  data: { confirm: t('data.messages.delete_confirmation') },
-	                      class: 'btn btn-sm btn-outline-danger'
+	  td = answer.correct
+	  td
+	    div class="btn-group"
+			  = link_to (octicon 'eye'), admin_answer_path(answer), class: 'btn btn-sm btn-outline-info'
+			  = link_to (octicon 'pencil'), edit_admin_answer_path(answer), class: 'btn btn-sm btn-outline-warning'
+			  = link_to (octicon 'trashcan'),
+			                  admin_answer_path(answer),
+			                  method: :delete,
+			                  data: { confirm: t('data.messages.delete_confirmation') },
+			                      class: 'btn btn-sm btn-outline-danger'

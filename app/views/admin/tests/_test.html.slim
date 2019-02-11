@@ -9,13 +9,13 @@ tbody
     
     td
       div class="btn-group" role="group" aria-label="Basic example"
-        = link_to t('common.show'), admin_test_path(test), class: 'btn btn-sm btn-outline-info'
+        = link_to (octicon 'eye'), admin_test_path(test), class: 'btn btn-sm btn-outline-info'
 
-        = button_to t('.edit'), edit_admin_test_path(test), 
+        = link_to (octicon 'pencil'), edit_admin_test_path(test), 
                       method: :get, data: { test_id: test.id },
                       class: 'btn btn-sm btn-outline-warning form-inline-link'
         
-        = link_to t('.delete'), admin_test_path(test),
+        = link_to (octicon 'trashcan'), admin_test_path(test),
           method: :delete, data: { confirm: t('data.messages.delete_confirmation') },
                                                               class: 'btn btn-sm btn-outline-danger'
         = button_to t('.start'), start_test_path(test), class: "btn btn-sm btn-outline-primary ml-3"

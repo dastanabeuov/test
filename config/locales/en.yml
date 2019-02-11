@@ -1,4 +1,11 @@
 en:
+  select_category: "Select a category"
+  enumerize:
+    rule:
+      category_badge: "For passing all the tests from the category Backend"
+      single_badge: "For passing the test on the first attempt"
+      level_badge: "For passing all the tests of a certain level"
+
   helper_methods:
     application:
       flash_message:
@@ -88,6 +95,25 @@ en:
         other: "%{count} errors detected"
 
   admin:
+    badges:
+      badge:
+        destroy: 'Delete'
+      show:
+        header: 'Badge'
+        name: 'Name'
+        image: 'Image'
+        rule: 'Rule'
+        actions: 'Action'
+      new:
+        header: 'Create badge'
+      edit:
+        header: 'Edit badge'
+      index:
+        name: 'Name'
+        image: 'Image'
+        rule: 'Rule'
+        new_badge: 'Create new badge'
+
     nav:
       panel_header: 'TestGuru Admin Panel'
       greetings: 'Welcome, %{email} Guru'
@@ -104,7 +130,8 @@ en:
         level: 'Level'
         questions_quantity: 'Questions'
         actions: 'Actions'
-        show_gists: 'Gists'        
+        show_gists: 'Gists'
+        new_badge: 'Create new badge'                
       show:
         header: 'Test %{title}'
         create_new_question: 'Create New Question'

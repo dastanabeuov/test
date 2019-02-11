@@ -1,0 +1,19 @@
+h1 = t('.my_badges')
+
+div class="table-responsive mt-3"
+	table class="table table-bordered table-hover"
+	  thead class="thead-light"
+		  tr
+		    th class="sort-by-title pointer" 
+		    	= t('.title')
+		    	= octicon 'arrow-up', class: 'text-success hide'
+		    	= octicon 'arrow-down', class: 'text-success hide'
+
+		    th = t('.image')
+		    
+		    th = t('.Rule')
+
+	  = render @badges
+
+div class="btn-group mt-3"
+  = link_to t('.common.back'), badges_path, class: 'btn btn-sm btn-outline-secondary'

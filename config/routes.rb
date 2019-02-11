@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: %i[new create]  
 
+  resources :badges, only: :index
+  get '/badges/my', to: 'badges#my'
+  
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member      
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
-
+    resources :badges
     resources :gists, only: :index
   end
   

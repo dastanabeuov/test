@@ -1,8 +1,11 @@
 h1 = t('.header')
 
-p = button_to t('.show_gists'), admin_gists_path, class: 'btn-outline-primary btn-sm btn', method: :get
+div class="btn-group"
+	= button_to t('.show_gists'), admin_gists_path, class: 'btn-outline-info btn-sm btn', method: :get
 
-p = button_to t('.new_test'), new_admin_test_path, class: 'btn-outline-primary btn-sm btn', method: :get
+	= button_to "Badges", admin_badges_path, class: 'btn-outline-warning btn-sm btn', method: :get
+
+p = button_to t('.new_test'), new_admin_test_path, class: 'btn-outline-primary btn-sm btn', method: :get		
 
 = render 'shared/errors', resource: @test
 
@@ -21,4 +24,4 @@ div class="table-responsive"
 		    
 		    th colspan="3" = t('.actions')
 
-	  		= render @tests
+	  = render @tests
