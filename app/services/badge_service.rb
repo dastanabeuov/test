@@ -3,7 +3,7 @@ class BadgeService
   def initialize(test_passage)
     user = test_passage.user
     @badges = Badge.all.select { |b| b.find_tests.include?(test_passage.test) }
-    @tests = user.test_passages.completed?.map(&:test)
+    @tests = user.test_passages.test_passed?.map(&:test)
   end
 
   def build

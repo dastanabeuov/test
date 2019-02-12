@@ -1,6 +1,5 @@
 class Admin::QuestionsController < ApplicationController
   
-  before_action :admin_required!  
   before_action :set_test, only: %i[new create]
   before_action :set_question, only: %i[show edit destroy update]
 
@@ -55,9 +54,5 @@ class Admin::QuestionsController < ApplicationController
   def rescue_with_question_not_found
     render plain: 'This question does not exist'
   end
-
-  def admin_required!
-    redirect_to root_path unless current_user.admin?
-  end  
 
 end

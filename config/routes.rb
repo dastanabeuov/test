@@ -18,8 +18,9 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: %i[new create]  
 
-  resources :badges, only: :index
-  get '/badges/my', to: 'badges#my'
+  resources :badges, only: :index do
+    get :my, on: :collection
+  end
   
   namespace :admin do
     resources :tests do

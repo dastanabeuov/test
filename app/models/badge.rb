@@ -1,5 +1,5 @@
 class Badge < ApplicationRecord
-
+  
   extend Enumerize
 
   enumerize :rule, in: %i[category_badge single_badge level_badge]

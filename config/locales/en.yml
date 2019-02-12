@@ -113,6 +113,8 @@ en:
         image: 'Image'
         rule: 'Rule'
         new_badge: 'Create new badge'
+      form:
+        create: 'Create badge'
 
     nav:
       panel_header: 'TestGuru Admin Panel'

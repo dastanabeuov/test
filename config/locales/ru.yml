@@ -118,6 +118,8 @@ ru:
         image: 'Картинка'
         rule: 'Правила'
         new_badge: 'Создать новый бейдж'
+      form:
+        create: 'Create badge'        
 
 
     nav:

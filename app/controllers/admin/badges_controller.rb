@@ -1,6 +1,5 @@
 class Admin::BadgesController < Admin::BaseController
   
-  before_action :admin_required!
   before_action :set_badge, only: %i[show edit update destroy]
 
   def index
@@ -40,15 +39,11 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def badge_params
-    params[:badge].permit(:name, :rule, :image)
+    params.require(:badge).permit(:name, :rule, :image, :primary_param, :secondary_param)
   end
 
   def set_badge
-    @badge = Badge.find(params[:id])
+    @baadge = Badge.find(params[:id])
   end
-
-  def admin_required!
-    redirect_to root_path unless current_user.admin?
-  end  
 
 end

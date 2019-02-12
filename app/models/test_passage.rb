@@ -10,6 +10,7 @@ class TestPassage < ApplicationRecord
   
   scope :last_test_entry, ->(test) { where(test_id: test.id).last }
 
+
   def completed?
     current_question.nil?
   end
@@ -17,10 +18,6 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
 	  self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
-  end
-
-  def completed?
-    current_question.nil?
   end
 
   def test_passed?
