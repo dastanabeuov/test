@@ -31,10 +31,14 @@ class TestPassage < ApplicationRecord
     test.questions.where('id < ?', current_question.id).count + 1
   end
 
+  def values_for_result
+    (correct_questions / test.questions.count * 100)
+  end
+
   private
 
   def before_save_set_result
-    self.result = test_passed?
+    self.result = values_for_result
   end  
 
   def before_validation_set_next_question
@@ -42,13 +46,11 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.sort == Array(answer_ids).map(&:to_i).sort
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
-    test.questions.each do |question|
-      question.answers.where(correct: true)
-    end
+    current_question.answers.correct
   end
 
   def next_question
