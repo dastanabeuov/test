@@ -6,11 +6,13 @@ table class="table-bordered table-hover"
       th = t('.name')
       th = t('.image')
       th = t('.rule')
+      th = t('.primary_param')
   tbody
   	tr
   	  td = @badge.name
   	  td = @badge.image
   	  td = @badge.rule
+      td = @badge.primary_param
 
   div class="btn-group mt-3"
     = link_to t('common.back'), admin_badges_path, class: "btn btn-sm btn-outline-secondary"

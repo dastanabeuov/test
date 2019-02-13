@@ -7,9 +7,12 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question
-  
+  before_save :before_save_set_result
+
   scope :last_test_entry, ->(test) { where(test_id: test.id).last }
 
+  scope :success, -> { where('result > :pass_test_threshold', 
+                  pass_test_threshold: PASS_TEST_THRESHOLD) }
 
   def completed?
     current_question.nil?
@@ -22,7 +25,7 @@ class TestPassage < ApplicationRecord
 
   def test_passed?
     (correct_questions / test.questions.count * 100).floor >= PASS_TEST_THRESHOLD
-  end
+  end  
 
   def current_question_number
     test.questions.where('id < ?', current_question.id).count + 1
@@ -30,16 +33,22 @@ class TestPassage < ApplicationRecord
 
   private
 
+  def before_save_set_result
+    self.result = test_passed?
+  end  
+
   def before_validation_set_next_question
     self.current_question = next_question
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
+    correct_answers.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
-    current_question.answers.correct
+    test.questions.each do |question|
+      question.answers.where(correct: true)
+    end
   end
 
   def next_question

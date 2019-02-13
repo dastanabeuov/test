@@ -13,6 +13,9 @@ class Test < ApplicationRecord
   scope :normal_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
 
+  scope :by_current_level, ->(level) { where(level: level) }
+  scope :by_category, ->(category) { joins(:category).where(categories: { title: category }) }
+
   validates :title, :level, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
