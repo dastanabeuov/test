@@ -1,34 +1,40 @@
 class BadgeService
   
-  def initialize(user, test_passage)
-    @badge_user = user
+  def initialize(test_passage)
     @test_passage = test_passage
+    @test = test_passage.test
+    @user = test_passage.user
   end
 
   def build
-    Badge.all.select { |badge| send("#{badge.rule}?", badge.primary_param) }
+    Badge.all.each do |badge|
+      case badge.rule
+      when 'category_badge'
+        add(badge) if category_badge?(badge.primary_param)
+      when 'single_badge'
+        add(badge) if single_badge?
+      when 'level_badge'
+        add(badge) if level_badge?(badge.primary_param.to_i)
+      end
+    end
   end
 
   private
 
+  def add(badge)
+    @user.badges << badge
+  end  
+
   def category_badge?(category)
-    if @test_passage.test.category == category
-      tests_by_category = Test.by_category(category)
-      one_current_category_tests = @badge_user.test_passages.where(test_id: tests_by_category)
-      tests_by_category.sort == one_current_category_tests.sort
-    end
+    @test_passage.test_passed? && @test.category.title == category
   end
 
-  def single_badge?(param)
-    @badge_user.test_passages.success.where(test: @test_passage.test)
+  def single_badge?
+    @test_passage.test_passed? && @user.tests.where(id: @test.id).count == 1
   end
 
   def level_badge?(level)
-    if @test_passage.test.level == level
-      tests_by_level = Test.by_current_level(level)
-      all_current_level_tests = @badge_user.test_passages.where(test_id: tests_by_level)
-      tests_by_level.ids.sort == all_current_level_tests.ids.sort
-    end
+    @test_passage.test_passed? && @test.level == level
   end  
   
 end

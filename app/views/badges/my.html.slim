@@ -1,4 +1,6 @@
-h1 = t('.my_badges')
+div class="btn-group"
+  h1 = t('.my_badges')
+  h1 class="text-success ml-3" = current_user.badges.count
 
 div class="table-responsive mt-3"
 	table class="table table-bordered table-hover"

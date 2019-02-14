@@ -21,6 +21,13 @@ categories = Category.create!(
     ]
   )
 
+user = User.create!(
+  [
+    { email: 'd.abeuov9@gmail.com', first_name: 'Dastan', last_name: 'Abeuov', password: 'A-z123123', password_confirmation: 'A-z123123', type: 'Admin' },
+    { email: 'example@example.org', password: 'A-z123123', password_confirmation: 'A-z123123' }
+    ]
+  )
+
 tests = Test.create!(
   [
     { title: 'Ruby', level: 1, category_id: categories[1].id, user_id: User.first.id },
