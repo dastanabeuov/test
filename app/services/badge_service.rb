@@ -27,6 +27,9 @@ class BadgeService
 
   def category_badge?(category)
     @test_passage.test_passed? && @test.category.title == category
+    tests_by_category = Test.by_category(category).ids
+    one_current_category_tests = @user.test_passages.success.where(test_id: tests_by_category).pluck(:test_id)
+    tests_by_category.sort == one_current_category_tests.sort
   end
 
   def single_badge?
@@ -35,6 +38,10 @@ class BadgeService
 
   def level_badge?(level)
     @test_passage.test_passed? && @test.level == level
+    tests_by_level = Test.by_current_level(level).ids
+    all_current_level_tests = @user.test_passages.success.where(test_id: tests_by_level).pluck(:test_id)
+    tests_by_level.sort == all_current_level_tests.sort
+     
   end  
   
 end

@@ -1,4 +1,5 @@
 <%= form_with(model: [:admin, @badge], local: true) do |f| %>
+  <%= render 'shared/errors', resource: @badge %>
     
     <div class="form-group">
       
