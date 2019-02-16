@@ -13,21 +13,21 @@ class BadgeService
   private
 
   def category_badge?(category)
-    return false if @test.category.title == category
+    return false if @test.category.title != category
     tests_category = Test.by_category(category).ids
-    current_category_tests = @user.test_passages.where(test_id: tests_category).pluck(:test_id)
+    current_category_tests = @user.test_passages.success.where(test_id: tests_category).pluck(:test_id)
     tests_category.sort == current_category_tests.sort
   end
 
   def level_badge?(level)
-    return false if @test.level == level
+    return false if @test.level != level
     tests_level = Test.by_level(level).ids
-    current_level_tests = @user.test_passages.where(test_id: tests_level).pluck(:test_id)
-    tests_level.sort == current_level_tests.sort
+    all_current_level_tests = @user.test_passages.success.where(test_id: tests_level).pluck(:test_id)
+    tests_level.sort == all_current_level_tests.sort
   end
 
   def single_badge?(param)
-    @test_passage.test_passed? && @user.tests.where(id: @test.id).count == 1
+    @user.tests.where(id: @test.id).count == 1 if @test_passage.test_passed?
   end
   
 end
