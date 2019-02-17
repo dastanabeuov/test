@@ -91,6 +91,8 @@ GEM
     dotenv-rails (2.6.0)
       dotenv (= 2.6.0)
       railties (>= 3.2, < 6.0)
+    enumerize (2.2.2)
+      activesupport (>= 3.2)
     erubi (1.8.0)
     execjs (2.7.0)
     faraday (0.15.4)
@@ -256,6 +258,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.0)
   dotenv-rails
+  enumerize
   i18n-js (~> 3.0.0)
   jbuilder (~> 2.5)
   jquery-rails
@@ -282,4 +285,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.6
+   1.17.3

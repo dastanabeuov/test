@@ -1,6 +1,5 @@
 class Admin::AnswersController < ApplicationController
   
-  before_action :admin_required!
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :set_question, only: %i[new create]
 
@@ -48,9 +47,5 @@ class Admin::AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:body, :correct)
   end
-
-  def admin_required!
-    redirect_to root_path unless current_user.is_a?(Admin)
-  end  
 
 end

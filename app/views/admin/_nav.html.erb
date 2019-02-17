@@ -1,9 +1,9 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mb-5">
 <% if current_page?(root_path) %>
-<h1><%= image_tag 'logo.png', title: "Service online test in Almaty", alt: "Программа для онлайн теста в Алматы", class: "navbar-brand",
+<h1><%= image_tag 'logo.png', title: "Service online test in Almaty", alt: "Программа для онлайн теста в Алматы", class: "navbar-brand img-fluid rounded-circle",
  heght: "auto", width: "auto" %></h1>
  <% else %>
-    <h2><%= image_tag 'logo.png', title: "Service online test in Almaty", alt: "Программа для онлайн теста в Алматы", class: "navbar-brand",
+    <h2><%= image_tag 'logo.png', title: "Service online test in Almaty", alt: "Программа для онлайн теста в Алматы", class: "navbar-brand img-fluid rounded-circle",
  heght: "auto", width: "auto" %></h2>
  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'Обновить профиль', edit_user_registration_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to t('.my_badges'), my_badges_path, class: "dropdown-item" %>
+          <%= link_to t('.bages'), badges_path, class: "dropdown-item" %>          
         </div>
       </li>     
       <li class="nav-item">

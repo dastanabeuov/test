@@ -2,7 +2,7 @@ h1 = t('.header')
 
 = render 'shared/errors', resource: @test
 
-= link_to t('.back_admin_panel'), admin_tests_path, class: "btn btn-sm btn-outline-primary mb-4 mt-2" if current_user.is_a?(Admin)
+= link_to t('.back_admin_panel'), admin_tests_path, class: "btn btn-sm btn-outline-primary mb-2 mt-5" if current_user.admin? 
 
 div class="table-responsive"
 	table class="table table-bordered table-hover"
@@ -19,4 +19,4 @@ div class="table-responsive"
 		    
 		    th colspan="3" = t('.actions')
 
-	  		= render @tests
+	  = render @tests

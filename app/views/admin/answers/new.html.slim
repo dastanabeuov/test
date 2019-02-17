@@ -2,5 +2,5 @@ div class="row justify-content-center"
   div class="col col-md-4"
     h2 class="default-header" = @answer.question.body
     = render 'form'
-    div class="mt-1"
+    div class="mt-3"
       = link_to t('common.back'), admin_question_path(@answer.question), class: "btn btn-sm btn-outline-secondary"

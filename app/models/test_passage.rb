@@ -7,8 +7,13 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question
-  
+  before_save :before_save_set_result
+
   scope :last_test_entry, ->(test) { where(test_id: test.id).last }
+
+  scope :success, -> { where('result > :pass_test_threshold', 
+                  pass_test_threshold: PASS_TEST_THRESHOLD) }
+
 
   def completed?
     current_question.nil?
@@ -19,19 +24,23 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def completed?
-    current_question.nil?
-  end
-
   def test_passed?
-    (correct_questions / test.questions.count * 100).floor >= PASS_TEST_THRESHOLD
-  end
+    values_for_result.floor >= PASS_TEST_THRESHOLD
+  end  
 
   def current_question_number
     test.questions.where('id < ?', current_question.id).count + 1
   end
 
   private
+
+  def values_for_result
+    (correct_questions / test.questions.count * 100)
+  end  
+
+  def before_save_set_result
+    self.result = values_for_result
+  end  
 
   def before_validation_set_next_question
     self.current_question = next_question

@@ -1,4 +1,11 @@
 ru:
+  select_category: "Выберите категорию"
+  enumerize:
+    rule:
+      category_badge: "За прохождение всех тестов из категории Backend"
+      single_badge: "За прохождение теста с первой попытки"
+      level_badge: "За прохождение всех тестов на уровне определённого уровня"
+
   helper_methods:
     application:
       flash_message:
@@ -93,6 +100,28 @@ ru:
         other: "Обнаружено %{count} ошибки"
 
   admin:
+    badges:
+      badge:
+        destroy: 'Удалить'
+      show:
+        header: 'Бейдж'
+        name: 'Имя'
+        image: 'Картинка'
+        rule: 'Правила'
+        actions: 'Действия'
+      new:
+        header: 'Создать бейдж'
+      edit:
+        header: 'Редактирование бейдж'
+      index:
+        name: 'Имя'
+        image: 'Картинка'
+        rule: 'Правила'
+        new_badge: 'Создать новый бейдж'
+      form:
+        create: 'Create badge'        
+
+
     nav:
       panel_header: 'Панель Администратора TestGuru'
       greetings: 'Добро пожаловать, %{email} Гуру'
@@ -109,7 +138,8 @@ ru:
         level: 'Сложность'
         questions_quantity: 'Вопросы'
         actions: 'Действия'
-        show_gists: "Gists'ы"        
+        show_gists: "Gists'ы"
+        new_badge: 'Создать новый бейдж'        
       show:
         header: 'Тест %{title}'
         create_new_question: 'Новый Вопрос'

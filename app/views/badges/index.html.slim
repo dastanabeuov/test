@@ -1,0 +1,20 @@
+h1 = t('.all_badges')
+
+= render 'shared/errors', resource: @badge
+
+div class="table-responsive mt-3"
+	table class="table table-bordered table-hover"
+	  thead class="thead-light"
+		  tr
+		    th class="sort-by-title pointer" 
+		    	= t('.title')
+		    	= octicon 'arrow-up', class: 'text-success hide'
+		    	= octicon 'arrow-down', class: 'text-success hide'
+		    th = t('.image')
+		    th = t('.Rule')
+		    th = t('.primary_param')
+
+	  = render @badges
+
+div class="btn-group mt-3"
+  = link_to t('.common.back'), tests_path, class: 'btn btn-sm btn-secondary'
