@@ -132,6 +132,7 @@ ru:
         cancel: 'Отмена'
         start: 'Старт'
       index:
+        timer: 'Время'
         header: 'Доступные Тесты'
         new_test: 'Создать Новый Тест'
         title: 'Название'
@@ -193,6 +194,7 @@ ru:
     test:
       start: 'Пройти тест'
     index:
+      timer: 'Время'      
       header: 'Доступные Тесты'
       title: 'Название'
       level: 'Сложность'
@@ -203,6 +205,8 @@ ru:
 
   test_passages:
     show:
+      your_result: 'Ваш результат'
+      timer_down: 'Осталось время:'
       header: 'Вы проходите %{test_title} тест'
       total_questions: 'Количество вопросов в тесте: %{count}'
       current_question: 'Текущий вопрос: %{number}'

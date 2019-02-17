@@ -8,8 +8,12 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def update
+    if @test_passage.test.timer != 0 && @test_passage.timer_off?
+      @test_passage.completed 
+    end
+     
     @test_passage.accept!(params[:answer_ids])
-    
+
     if @test_passage.completed?
       user_badges = BadgeService.new(current_user, @test_passage).build
       current_user.badges << user_badges

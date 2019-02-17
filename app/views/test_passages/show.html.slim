@@ -1,5 +1,12 @@
-div class="jumbotron"
+div class="jumbotron" 
   h1 = t('.header', test_title: @test_passage.test.title )
+  
+  - if @test_passage.test.timer > 0
+  div class="timer_down"
+    h6
+      = t('.timer_down')
+      = content_tag :span, '', class: 'timer ml-1', data: { time: @test_passage.timer_down }
+
   p = t('.current_question', number: @test_passage.current_question_number)
 
   = content_tag :div, class: 'test-progress-bar' do
