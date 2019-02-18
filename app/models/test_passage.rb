@@ -22,10 +22,6 @@ class TestPassage < ApplicationRecord
     (timer_up - Time.current).to_i
   end
 
-  def timer_up
-    created_at + test.timer.minutes
-  end
-
   def completed
     self.current_question = nil
   end  
@@ -35,6 +31,10 @@ class TestPassage < ApplicationRecord
   end
   
   def accept!(answer_ids)
+    if self.test.timer != 0 && self.timer_off?
+      self.completed 
+    end
+
 	  self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
@@ -51,7 +51,11 @@ class TestPassage < ApplicationRecord
     (correct_questions / test.questions.count * 100)
   end  
 
-  private  
+  private
+  
+  def timer_up
+    created_at + test.timer.minutes
+  end    
 
   def before_save_set_result
     self.result = values_for_result
