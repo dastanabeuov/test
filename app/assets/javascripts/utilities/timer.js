@@ -9,8 +9,8 @@ document.addEventListener('turbolinks:load', function () {
       if (timerDown > 0) {
         timerDown -= 1;
       } else {
-        alert('Время вышло!')
-        document.querySelector('form').submit()
+        alert('Время вышло!');
+        form.submit();
       }
 
       var time = parseInt(timerDown / 60) + ":" +  timerDown % 60;

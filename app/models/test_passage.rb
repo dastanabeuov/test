@@ -15,6 +15,7 @@ class TestPassage < ApplicationRecord
                   pass_test_threshold: PASS_TEST_THRESHOLD) }
 
   def timer_off?
+    self.test.timer != 0
     Time.current > timer_up
   end
 
@@ -31,12 +32,12 @@ class TestPassage < ApplicationRecord
   end
   
   def accept!(answer_ids)
-    if self.test.timer != 0 && self.timer_off?
-      self.completed 
+    if self.timer_off?
+      self.completed
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+      save!
     end
-
-	  self.correct_questions += 1 if correct_answer?(answer_ids)
-    save!
   end
 
   def test_passed?
