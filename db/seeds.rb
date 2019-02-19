@@ -23,7 +23,7 @@ categories = Category.create!(
 
 user = User.create!(
   [
-    { email: 'd.abeuov9@gmail.com', first_name: 'Dastan', last_name: 'Abeuov', password: 'A-z123123', password_confirmation: 'A-z123123', type: 'Admin' },
+    { email: 'admin@example.com', first_name: 'Admin', last_name: 'Adminov', password: 'A-z123123', password_confirmation: 'A-z123123', type: 'Admin' },
     { email: 'example@example.org', password: 'A-z123123', password_confirmation: 'A-z123123' }
     ]
   )
@@ -41,21 +41,27 @@ tests = Test.create!(
 questions = Question.create!(
   [
     { body: 'Who is author lang Ruby?', test_id: tests[0].id },
-    { body: 'What language is written in RubyonRails?', test_id: tests[1].id },
+    
+    { body: 'language is create RubyonRails?', test_id: tests[1].id },
+    
     { body: 'What is the method decription on HTML5?', test_id: tests[2].id },
-    { body: 'Who is create nginx+passenger?', test_id: tests[3].id }
+    
+    { body: 'Who is author nginx+passenger?', test_id: tests[3].id }
   ]
 )
 
 answers = Answer.create!(
   [
     { body: 'Matz', correct: true, question_id: questions[0].id },
-    { body: 'Ruby', correct: true, question_id: questions[1].id },
-    { body: 'This method information write sample text on site', correct: true, question_id: questions[2].id },
-    { body: 'Igor Sysoev', correct: true, question_id: questions[3].id },
     { body: 'David H.H', correct: false, question_id: questions[0].id },
+
+    { body: 'Ruby', correct: true, question_id: questions[1].id },
     { body: 'JavaScript', correct: false, question_id: questions[1].id },
+
+    { body: 'This method information write sample text on site', correct: true, question_id: questions[2].id },
     { body: 'Tis method from form authod write', correct: false, question_id: questions[2].id },
-    { body: 'Alexander Shults', correct: false, question_id: questions[3].id }
+
+    { body: 'Igor Sysoev', correct: true, question_id: questions[3].id },
+    { body: 'Yegan Shults', correct: false, question_id: questions[3].id }
   ]
 )

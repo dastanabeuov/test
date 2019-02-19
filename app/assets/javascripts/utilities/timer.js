@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function () {
   if (timer) {
     var step = 1000;
     var timerDown = timer.dataset.time;
-    var form = document.querySelector('form');
+    var form = document.querySelector('#form-test-passage');
 
     setInterval(function () {
       if (timerDown > 0) {

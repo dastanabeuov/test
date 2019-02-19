@@ -15,7 +15,7 @@ class TestPassage < ApplicationRecord
                   pass_test_threshold: PASS_TEST_THRESHOLD) }
 
   def timer_off?
-    self.test.timer != 0
+    #self.test.timer != 0
     Time.current > timer_up
   end
 
