@@ -3,4 +3,5 @@ tbody
     td = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
     td = test.level
     td = test.questions.count
+    td = test.timer    
     td = button_to t('.start'), start_test_path(test), class: "btn btn-sm btn-outline-primary"

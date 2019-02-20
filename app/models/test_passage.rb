@@ -14,14 +14,27 @@ class TestPassage < ApplicationRecord
   scope :success, -> { where('result > :pass_test_threshold', 
                   pass_test_threshold: PASS_TEST_THRESHOLD) }
 
+  def timer_off?
+    test.timer?
+    Time.current > timer_up
+  end
+
+  def timer_down
+    (timer_up - Time.current).to_i
+  end
 
   def completed?
     current_question.nil?
   end
   
   def accept!(answer_ids)
-	  self.correct_questions += 1 if correct_answer?(answer_ids)
-    save!
+    if timer_off?
+      completed!
+      save!
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+      save!
+    end
   end
 
   def test_passed?
@@ -32,11 +45,19 @@ class TestPassage < ApplicationRecord
     test.questions.where('id < ?', current_question.id).count + 1
   end
 
-  private
-
   def values_for_result
     (correct_questions / test.questions.count * 100)
   end  
+
+  private
+
+  def completed!
+    current_question = nil
+  end  
+  
+  def timer_up
+    created_at + test.timer.minutes
+  end    
 
   def before_save_set_result
     self.result = values_for_result

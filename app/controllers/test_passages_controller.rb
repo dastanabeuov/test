@@ -9,7 +9,7 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    
+
     if @test_passage.completed?
       user_badges = BadgeService.new(current_user, @test_passage).build
       current_user.badges << user_badges

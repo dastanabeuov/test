@@ -126,6 +126,7 @@ en:
         cancel: 'Cancel'
         start: 'Start'
       index:
+        timer: 'Time'        
         header: 'All Tests'
         new_test: 'Create New Test'
         title: 'Title'
@@ -180,6 +181,7 @@ en:
     test:
       start: 'Start'
     index:
+      timer: 'Time'      
       header: 'All Tests'
       title: 'Title'
       level: 'Level'
@@ -190,6 +192,8 @@ en:
 
   test_passages:
     show:
+      your_result: 'Your_result'
+      timer_down: 'Time left:'
       header: 'Passing the %{test_title} test'
       total_questions: 'Total Questions: %{count}'
       current_question: 'Current Question: %{number}'

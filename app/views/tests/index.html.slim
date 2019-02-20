@@ -12,11 +12,9 @@ div class="table-responsive"
 		    	= t('.title')
 		    	= octicon 'arrow-up', class: 'text-success hide'
 		    	= octicon 'arrow-down', class: 'text-success hide'
-
 		    th = t('.level')
-		    
 		    th = t('.questions_quantity')
-		    
-		    th colspan="3" = t('.actions')
+		    th = t('.timer')
+		    th colspan="1" = t('.action')
 
 	  = render @tests
