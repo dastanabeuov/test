@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
-  username: gauss
-  password: A-z123123
+  username: your_name
+  password: your_password
 
 development:
   <<: *default
